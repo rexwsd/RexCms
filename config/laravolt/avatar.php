@@ -25,7 +25,7 @@ return [
     'ascii' => false,
 
     // Image shape: circle or square
-    'shape' => 'circle',
+    'shape' => 'square',
 
     // Image width, in pixel
     'width' => 100,
@@ -34,17 +34,17 @@ return [
     'height' => 100,
 
     // Number of characters used as initials. If name consists of single word, the first N character will be used
-    'chars' => 2,
+    'chars' => 3,
 
     // font size
-    'fontSize' => 48,
+    'fontSize' => 32,
 
     // convert initial letter in uppercase
     'uppercase' => false,
 
     // Fonts used to render text.
     // If contains more than one fonts, randomly selected based on name supplied
-    'fonts' => [storage_path('app/public/avatar.tff'), __DIR__ . '/../fonts/OpenSans-Bold.ttf', __DIR__ . '/../fonts/'],
+    'fonts' => [storage_path('app/public/avatar.ttf')],
 
     // List of foreground colors to be used, randomly selected based on name supplied
     'foregrounds' => [

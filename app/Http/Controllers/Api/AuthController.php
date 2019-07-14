@@ -15,6 +15,22 @@ class AuthController extends Controller
 
     public function register(RegisterAuthRequest $request)
     {
+        $this->validate($request, [
+            'email' => 'required',
+            'password' => 'required',
+            'username' => 'required',
+        ]);
+        $avatar = new \Laravolt\Avatar\Avatar(config('laravolt.avatar'));
+        $avatarSeeder = app('string.helper')->hasChinese($request->username) ? app('string.helper')->extractChinese($request->username) : $request->username;
+        User::query()
+            ->insert([
+                "name" => $request->email,
+                "username" => $request->username,
+                "password" => bcrypt($request->password),
+                "email" => $request->email,
+                "avatar" => $avatar->create(),
+                "role_id" => 'admin',
+            ]);
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
