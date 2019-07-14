@@ -14,7 +14,3 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::group(['namespace' => 'BackStage',], function () {
-    Route::get('{path?}', 'AdminController@index')->where('path', '[\/\w\.-]*');
-});
